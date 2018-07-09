@@ -205,7 +205,8 @@ class S3fsService implements S3fsServiceInterface {
     }
     // Create an iterator that will emit all of the objects matching the
     // key prefix.
-    $iterator = $s3->getIterator('ListObjectVersions', $iterator_args);
+    // TODO: make ListObjectVersions vs ListObjects command a configurable thing
+    $iterator = $s3->getIterator('ListObjects', $iterator_args);
 
     // The $folders array is an associative array keyed by folder paths, which
     // is constructed as each filename is written to the DB. After all the files
